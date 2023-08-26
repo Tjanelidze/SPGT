@@ -1,1 +1,66 @@
- 
+@media (max-width: 800px) {
+  .main {
+    height: 100%;
+    display: flex;
+    flex-grow: 1;
+  }
+  .main__phone {
+    display: none;
+  }
+  .main__links {
+    flex-grow: 1;
+  }
+  .header__pages {
+    gap: 0;
+  }
+}
+@media (max-width: 750px) {
+  .container {
+    padding: 1.6rem;
+  }
+}
+@media (max-width: 688px) {
+  .logo__large {
+    display: none;
+  }
+  .logo__small {
+    display: block;
+  }
+  .button_preview span {
+    display: none;
+  }
+  .button_preview img {
+    display: block;
+  }
+  .button_preview {
+    padding: 1.1rem 1.6rem;
+  }
+}
+@media (max-width: 500px) {
+  .header {
+    padding: 0rem 0.8rem;
+  }
+  .links span {
+    display: none;
+  }
+  .links svg {
+    width: 2.4rem;
+    height: 2.4rem;
+  }
+  .customize__heading {
+    font-size: 2.4rem;
+  }
+  .links__customize {
+    margin: 2.4rem;
+  }
+  .customize__empty-panel {
+    margin: 0 4.4rem;
+  }
+  .links_save {
+    padding: 1.6rem;
+  }
+  .links_save button {
+    width: 100%;
+    line-height: 150%;
+  }
+}

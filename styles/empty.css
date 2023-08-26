@@ -1,3 +1,6 @@
+body {
+  height: 100vh;
+}
 /* reusable classes */
 .links {
   cursor: pointer;
@@ -11,6 +14,11 @@
 }
 .container {
   padding: 2.4rem;
+  height: 100vh;
+  /* checking */
+  display: flex;
+  flex-direction: column;
+  /* checking */
 }
 
 /* reusable classes */
@@ -30,6 +38,13 @@
 
 .header__logo {
   cursor: pointer;
+  align-self: center;
+}
+.header__logo img {
+  width: 90%;
+}
+.logo__small {
+  display: none;
 }
 
 .header__pages {
@@ -64,12 +79,17 @@
   font-size: 16px;
   font-weight: 600;
   background: transparent;
+  color: #633cff;
+}
+.preview__button-icon {
+  display: none;
 }
 
 /* end of header styles */
 
 /* main */
 .main {
+  flex-grow: 1;
   width: 100%;
   max-width: 1352px;
   margin: 0 auto;
@@ -93,16 +113,14 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  height: 100%;
-  margin: 4rem;
 }
 
 .customize__heading {
   font-size: 32px;
   font-style: normal;
   font-weight: 700;
-
   color: #333;
+  margin-bottom: 0.8rem;
 }
 
 .customize__information {
@@ -126,21 +144,22 @@
 .customize__empty-panel {
   height: 100%;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
+  margin: 0 4rem;
+}
+.links__customize {
+  margin: 4rem;
 }
 
 .empty-panel__content {
-  width: 488px;
+  width: 80%;
   text-align: center;
 }
-
-.empty-panel__wrapper {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+.empty-panel__wrapper img {
+  width: 60%;
 }
-
 .empty-panel__heading {
   color: #333;
   text-align: center;
