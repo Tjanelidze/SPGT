@@ -10,7 +10,7 @@
       sizes="32x32"
       href="../assets/images/favicon-32x32.png"
     />
-    <link rel="stylesheet" href="./styles/general.css" />
+    <link rel="stylesheet" href="../styles/general.css" />
     <link rel="stylesheet" href="../styles/register.css" />
     <link rel="stylesheet" href="../styles/mobile/register-mobile.css" />
 
@@ -37,6 +37,7 @@
             <div class="envelope-div icon">
               <img class="envelope" src="../assets/images/icon-email.svg" />
             </div>
+            <span class="email-err err">Can't be empty</span>
           </div>
           <div class="second-form">
             <label for="password">Create password</label>
@@ -48,6 +49,7 @@
             <div class="lock-div icon">
               <img class="lock" src="../assets/images/icon-password.svg" />
             </div>
+            <span class="password-err err">Can't be empty</span>
           </div>
 
           <div class="third-form">
@@ -63,6 +65,7 @@
                 src="../assets/images/icon-password.svg"
               />
             </div>
+            <span class="confirm-password-err err">Can't be empty</span>
           </div>
         </form>
 
@@ -74,14 +77,11 @@
 
         <p class="question">
           Don't have an account?
-          <span class="question-login">Login</span>
+          <a href="../index.html" class="question-login">Login</a>
         </p>
       </main>
     </div>
-    <!-- Links Profile Details Preview Customize your links Add/edit/remove links
-    below and then share all your profiles with the world! + Add new link Let's
-    get you started Use the “Add new link” button to get started. Once you have
-    more than one link, you can reorder and edit them. We're here to help you
-    share your profiles with everyone! Save -->
+
+    <script src="../js/register.js"></script>
   </body>
 </html>
