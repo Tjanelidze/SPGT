@@ -23,6 +23,7 @@ body{
 }
 
 .Back-to-editor{
+    text-decoration: none;
     width: 159px;
     height:  46px;
     padding: 11px 27px;
