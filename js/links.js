@@ -7,8 +7,6 @@ const phoneMockDiv = document.querySelector(".phone_phone-mock");
 const leftWholeDiv = document.querySelector(".main__links");
 let platformItems = JSON.parse(localStorage.getItem("userData")) || [];
 
-// let platformItems = [];
-// const platformItems = [];
 let linkCounter = 0;
 const menuList = [
   {
