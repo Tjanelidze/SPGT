@@ -1,6 +1,7 @@
 body {
   height: 100vh;
 }
+
 /* reusable classes */
 .links {
   cursor: pointer;
@@ -15,21 +16,26 @@ body {
   border: 1px solid #633cff;
   border-radius: 8px;
 }
+
 .container {
   padding: 2.4rem;
   height: 100vh;
-  /* checking */
   display: flex;
   flex-direction: column;
-  /* checking */
   gap: 2.4%;
 }
+
 .links-active {
   background-color: #efebff;
   color: #633cff;
 }
+
 .links-active svg path {
   fill: #633cff;
+}
+
+.link-card-margin-top {
+  margin-top: 20px;
 }
 /* reusable classes */
 
@@ -49,10 +55,13 @@ body {
 .header__logo {
   cursor: pointer;
   align-self: center;
+  width: 20%;
 }
+
 .header__logo img {
-  width: 90%;
+  width: 100%;
 }
+
 .logo__small {
   display: none;
 }
@@ -60,6 +69,10 @@ body {
 .header__pages {
   display: flex;
   gap: 1.6rem;
+}
+
+.header__button {
+  align-self: center;
 }
 
 .pages__links,
@@ -73,17 +86,26 @@ body {
 }
 
 .button_preview {
+  display: flex;
+
   padding-left: 2.7rem;
   padding-right: 2.7rem;
-  font-size: 16px;
+  font-size: 1.6rem;
   font-weight: 600;
   background: transparent;
   color: #633cff;
+  text-decoration: none;
+  padding-top: 11px;
+  padding-bottom: 11px;
+  border: 1px solid #633cff;
+  border-radius: 8px;
 }
+
 .button_preview a {
   color: #633cff;
   text-decoration: none;
 }
+
 .preview__button-icon {
   display: none;
 }
@@ -109,6 +131,7 @@ body {
   justify-content: center;
   align-items: center;
 }
+
 .main__details {
   background-color: #fff;
   border-radius: 12px;
@@ -116,6 +139,7 @@ body {
   flex-direction: column;
   /* justify-content: space-between; */
 }
+
 .customize__heading {
   font-size: 32px;
   font-style: normal;
@@ -140,9 +164,11 @@ body {
   padding: 6.1rem 3.8rem 6rem 3.9rem;
   cursor: pointer;
 }
+
 .form__img-upload #file-upload-button {
   background-color: red;
 }
+
 .detail_save {
   padding: 2.4rem 4rem;
   border-top: 1px solid #d9d9d9;
@@ -156,7 +182,6 @@ body {
   font-size: 1.6rem;
   font-style: normal;
   font-weight: 600;
-
   background-color: #633cff;
 }
 
@@ -179,6 +204,7 @@ body {
   margin-right: 4rem;
   height: 100%;
 }
+
 .box {
   background-color: #efebff;
   padding: 6.1rem 3.8rem 6rem 3.9rem;
@@ -237,24 +263,27 @@ output {
 form {
   display: flex;
   flex-direction: column;
-  /* gap: 2.4rem; */
 }
 
 .form__user-info {
   margin: 2rem;
 }
+
 .form__user-info div {
   display: flex;
   justify-content: space-between;
 }
+
 .form__user-info div label {
   font-size: 1.6rem;
   color: #737373;
 }
+
 .form__user-info div:nth-child(2n) {
   margin-top: 1.2rem;
   margin-bottom: 1.2rem;
 }
+
 .form__user-info div input {
   width: 70%;
   padding: 1.2rem 1.6rem;
@@ -262,10 +291,12 @@ form {
   border-radius: 0.8rem;
   font-size: 1.6rem;
 }
+
 .form__user-info div input::placeholder {
   color: #333;
   opacity: 0.5;
 }
+
 .form__user-info div {
   align-items: center;
 }
@@ -285,4 +316,93 @@ form {
 .btn-outline:hover,
 .btn-outline:active {
   background-color: #efebff;
+}
+/*  */
+.phone_phone-mock {
+  position: relative;
+}
+.phone_phone-mock .card-wrapper {
+  position: absolute;
+  top: 259px;
+  left: 35px;
+  width: 234px;
+}
+.link-preview {
+  display: flex;
+  justify-content: space-between;
+
+  padding: 1.1rem 1.6rem;
+  align-items: center;
+  gap: 0.8rem;
+  border-radius: 8px;
+  background: #1a1a1a;
+  font-size: 1.2rem;
+  line-height: 150%;
+  text-decoration: none;
+}
+.link-preview div {
+  display: flex;
+  align-items: center;
+  color: #fff;
+  gap: 0.8rem;
+  margin-top: 0.2rem;
+  margin-bottom: 0.2rem;
+}
+.phone_phone-mock {
+  position: relative;
+}
+#upload-output {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  right: 50%;
+  transform: translateX(50%);
+  top: 60px;
+
+  background-position: center;
+  background-size: cover;
+}
+.name {
+  position: absolute;
+  width: 90%;
+  text-align: center;
+  background-color: rgb(255, 255, 255);
+  top: 182px;
+  left: 15px;
+  font-size: 1.8rem;
+  font-weight: 600;
+}
+.useremail {
+  position: absolute;
+  text-align: center;
+  width: 90%;
+  background-color: rgb(255, 254, 254);
+  color: #737373;
+  font-weight: 400;
+  top: 210px;
+  left: 15px;
+  font-size: 1.4rem;
+}
+.user__first-name {
+  position: relative;
+}
+.user__first-name p {
+  position: absolute;
+  top: 50%;
+  right: 1.6rem;
+  transform: translateY(-50%);
+  color: red;
+  opacity: 0;
+}
+.user__last-name {
+  position: relative;
+}
+.user__last-name p {
+  position: absolute;
+  top: 50%;
+  right: 1.6rem;
+  transform: translateY(-50%);
+  color: red;
+  opacity: 0;
 }

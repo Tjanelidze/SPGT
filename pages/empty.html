@@ -9,8 +9,9 @@
   <link rel="stylesheet" href="../styles/general.css">
   <link rel="stylesheet" href="../styles/empty-media.css">
   <link rel="icon" type="image/png" sizes="32x32" href="../assets//images/favicon-32x32.png">
-  <script src="../pages/profile.js" defer></script>
+  <script src="../js/links.js" defer></script>
 </head>
+
 
 <body>
   <div class="container">
@@ -36,18 +37,17 @@
         </a>
       </div>
       <div class="header__button">
-        <button class="button_preview btn-outline">
-          <a href="preview.html">
-            <span>Preview</span>
-            <img src="../assets/images/icon-preview-header.svg" class="preview__button-icon" />
-          </a>
-        </button>
+        <a href="preview.html" class="button_preview">
+          <span>Preview</span>
+          <img src="../assets/images/icon-preview-header.svg" alt="" class="preview__button-icon">
+        </a>
       </div>
     </header>
     <main class="main">
       <div class="main__phone">
         <div class="phone_phone-mock">
           <img src="../assets/images/illustration-phone-mockup.svg" alt="phone mockup">
+          <div class="card-wrapper"></div>
         </div>
       </div>
       <div class="main__links">
@@ -56,16 +56,18 @@
           <p class="customize__information">Add/edit/remove links below and then share all your profiles with the
             world!
           </p>
-          <button class="customize__btn btn-outline">+ Add new link</button>
+          <button id="new-link" class="customize__btn btn-outline">+ Add new link</button>
         </div>
-        <div class="customize__empty-panel">
-          <img src="../assets/images/illustration-empty.svg" alt="empty illustration">
-          <div class="empty-panel__content">
-            <h2 class="empty-panel__heading">Let's get you started</h2>
-            <p class="empty-panel__text">Use the “Add new link” button to get started. Once you have more than one
-              link,
-              you can reorder and edit
-              them. We're here to help you share your profiles with everyone!</p>
+        <div class="insert-link">
+          <div class="customize__empty-panel">
+            <img src="../assets/images/illustration-empty.svg" alt="empty illustration">
+            <div class="empty-panel__content">
+              <h2 class="empty-panel__heading">Let's get you started</h2>
+              <p class="empty-panel__text">Use the “Add new link” button to get started. Once you have more than one
+                link,
+                you can reorder and edit
+                them. We're here to help you share your profiles with everyone!</p>
+            </div>
           </div>
         </div>
         <div class="links_save">
@@ -74,6 +76,7 @@
       </div>
     </main>
   </div>
+
 </body>
 
 </html>
