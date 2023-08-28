@@ -2,7 +2,7 @@ const newLinkBtn = document.getElementById("new-link");
 const emptyPanel = document.querySelector(".customize__empty-panel");
 const insertLink = document.querySelector(".insert-link");
 const cardWrapperDiv = document.querySelector(".card-wrapper");
-let platformItems = JSON.parse(localStorage.getItem("userData")) || [];
+// let platformItems = JSON.parse(localStorage.getItem("userData")) || [];
 // let platformItems = [];
 // const platformItems = [];
 let linkCounter = 0;
@@ -290,6 +290,7 @@ saveBtn.addEventListener("click", () => {
   if (!hasEmptyFields) {
     console.log(platformItems);
     // const jsonString = JSON.stringify(platformItems);
+    // console.log(platformItems);
     saveData(platformItems);
     console.log("Data saved successfully!");
   }
