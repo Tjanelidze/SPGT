@@ -2,6 +2,8 @@ const newLinkBtn = document.getElementById("new-link");
 const emptyPanel = document.querySelector(".customize__empty-panel");
 const insertLink = document.querySelector(".insert-link");
 const cardWrapperDiv = document.querySelector(".card-wrapper");
+const phoneMockDiv = document.querySelector(".phone_phone-mock");
+const leftWholeDiv = document.querySelector(".main__links");
 let platformItems = JSON.parse(localStorage.getItem("userData")) || [];
 // let platformItems = [];
 // const platformItems = [];
@@ -142,6 +144,9 @@ if (storData) {
 }
 // linkCounter = parsedData.length;
 newLinkBtn.addEventListener("click", () => {
+  phoneMockDiv.style.position = "fixed";
+  leftWholeDiv.style.justifyContent = "start";
+  insertLink.style.marginBottom = "auto";
   linkCounter++;
 
   const platformSelectId = `platform-${linkCounter}`;
@@ -228,7 +233,7 @@ newLinkBtn.addEventListener("click", () => {
     // ----------------
 
     // remove empty panel illustration
-    emptyPanel.remove();
+    emptyPanel.style.display = "none";
 
     addItemToObj(selectedPlatform);
 
@@ -239,11 +244,18 @@ newLinkBtn.addEventListener("click", () => {
       saveBtn.classList.remove("btn-disabled");
       saveBtn.addEventListener("click", () => {});
     } else if (!checkLinks) {
+      emptyPanel.style.display = "block";
       saveBtn.classList.add("btn-disabled");
     }
     const removeButton = document.querySelector(`#${platformSelectId}button`);
     removeButton.addEventListener("click", () => {
       linkCounter--;
+      if (linkCounter === 0) {
+        emptyPanel.style.display = "flex";
+        leftWholeDiv.style.justifyContent = "space-between";
+        insertLink.style.marginBottom = "0";
+        phoneMockDiv.style.position = "";
+      }
 
       const linkIndexToRemove = Number(platformSelectId.split("-")[1]);
       if (linkIndexToRemove) {
@@ -288,72 +300,101 @@ saveBtn.addEventListener("click", () => {
     }
   });
   if (!hasEmptyFields) {
-    console.log(platformItems);
-    // const jsonString = JSON.stringify(platformItems);
     saveData(platformItems);
     console.log("Data saved successfully!");
   }
 });
 const storedData = localStorage.getItem("userData");
 const existingData = storedData ? JSON.parse(storedData) : [];
-
-if (existingData.length > 0) {
-  existingData.forEach((item) => {
-    linkCounter++;
-    emptyPanel.remove();
-    insertLink.insertAdjacentHTML(
-      "beforeend",
-      `
-      <div class="links__link-items">
-      <div class="link__item">
-      <div class="item__header">
-      <div class="item-header__left">
-      <svg xmlns="http://www.w3.org/2000/svg" width="12" height="6" fill="none" viewBox="0 0 12 6">
-      <path fill="#737373" d="M0 0h12v1H0zM0 5h12v1H0z" />
-      </svg>
-      <span>Link #${linkCounter}</span>
-      </div>
-      <div class="item-header__right">
-      <button id="platform-${linkCounter}button">Remove</button>
-            </div>
+const renderData = (linkCounter, item) => {
+  insertLink.insertAdjacentHTML(
+    "beforeend",
+    `
+    <div class="links__link-items">
+    <div class="link__item">
+    <div class="item__header">
+    <div class="item-header__left">
+    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="6" fill="none" viewBox="0 0 12 6">
+    <path fill="#737373" d="M0 0h12v1H0zM0 5h12v1H0z" />
+    </svg>
+    <span>Link #${linkCounter}</span>
+    </div>
+    <div class="item-header__right">
+    <button id="platform-${linkCounter}button">Remove</button>
           </div>
-          <div class="item__platform">
-          <img src="../assets/images/icon-chevron-down.svg" alt="">
-          <img class="platform-icon" src="../assets/images/icon-github.svg"/>
-          <label for="platform-${linkCounter}">Platform</label>
-          <select id="platform-${linkCounter}"class="platform-select" name="platforms" >
-          <img class="platform-icon" src="../assets/images/icon-github.svg"/>
-          ${menuList
-            .map((i) => {
-              return `<option selected=${item.name} value="${i.name}">${i.name}</option>`;
-            })
-            .join("")}
-            </select>
-            </div>
-            <div class="item__url">
-            <label for="link">Link</label>
-            <div>
-            <input value=${
-              item.link
-            }  type="text" name="link" id="link${linkCounter}" placeholder="e.g. https://www.github.com/johnappleseed">
-              <p>error</p>
-              <img src="../assets/images/icon-link.svg" alt="">
-            </div>
+        </div>
+        <div class="item__platform">
+        <img src="../assets/images/icon-chevron-down.svg" alt="">
+        <img class="platform-icon" src="../assets/images/icon-github.svg"/>
+        <label for="platform-${linkCounter}">Platform</label>
+        <select id="platform-${linkCounter}"class="platform-select" name="platforms" >
+        <img class="platform-icon" src="../assets/images/icon-github.svg"/>
+        ${menuList
+          .map((i) => {
+            const isSelected = item.platform === i.name ? "selected" : "";
+            return `<option value="${item.platform}" ${isSelected} >${i.name}</option>`;
+          })
+          .join("")}
+          </select>
+          </div>
+          <div class="item__url">
+          <label for="link">Link</label>
+          <div>
+          <input value=${
+            item.link
+          }  type="text" name="link" id="link${linkCounter}" placeholder="e.g. https://www.github.com/johnappleseed">
+            <p>error</p>
+            <img src="../assets/images/icon-link.svg" alt="">
           </div>
         </div>
       </div>
-      `
+    </div>
+    `
+  );
+};
+
+if (existingData.length > 0) {
+  phoneMockDiv.style.position = "fixed";
+  leftWholeDiv.style.justifyContent = "start";
+  insertLink.style.marginBottom = "auto";
+  existingData.forEach((item) => {
+    linkCounter++;
+    emptyPanel.style.display = "none";
+    renderData(linkCounter, item);
+    // console.log(linkCounter);
+    const renderedRemove = document.querySelector(
+      `#platform-${linkCounter}button`
     );
+    renderedRemove.addEventListener("click", (e) => {
+      const parentElement = e.target.closest(".links__link-items");
+      const selectedPlatformName =
+        parentElement.querySelector(".platform-select").value;
+      const userData = JSON.parse(localStorage.getItem("userData"));
+
+      let itemCount = 0;
+      userData.forEach((item) => {
+        if (item.platform === selectedPlatformName) {
+          userData.splice(itemCount, 1);
+          saveData(userData);
+          const allLinks = document.querySelectorAll(".links__link-items");
+          allLinks.forEach((i) => {
+            i.remove();
+          });
+        }
+        // itemCount++;
+      });
+      renderData(linkCounter, item);
+    });
     const selectedItem = menuList.find((i) => i.name === item.platform);
     cardWrapperDiv.insertAdjacentHTML(
       "beforeend",
       `
       <a href="#" class="link-${linkCounter} link-preview link-card-margin-top" target="_blank" style="background: ${selectedItem.color}" >
-      <div>
-      <img class="image" src="${selectedItem.icon}" alt="${selectedItem.name}">
-      <p class="link${linkCounter}">${item.platform}</p>
-      </div>
-      <img src="../assets/images/icon-arrow-right.svg" alt="arrow" class="arrow">
+        <div>
+          <img class="image" src="${selectedItem.icon}" alt="${selectedItem.name}">
+          <p class="link${linkCounter}">${item.platform}</p>
+        </div>
+        <img src="../assets/images/icon-arrow-right.svg" alt="arrow" class="arrow">
       </a>
       `
     );
