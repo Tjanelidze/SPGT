@@ -21,6 +21,7 @@ body {
   /* checking */
   display: flex;
   flex-direction: column;
+<<<<<<< HEAD
   gap: 2.4%;
   /* checking */
 }
@@ -31,6 +32,10 @@ body {
 .links-active svg path {
   fill: #633cff;
 }
+=======
+  /* checking */
+}
+>>>>>>> 5c3bf4d2a33aea991519ec844c0eaa7e04c2657b
 
 /* reusable classes */
 
@@ -81,10 +86,13 @@ body {
   background: transparent;
   color: #633cff;
 }
+<<<<<<< HEAD
 .button_preview a {
   color: #633cff;
   text-decoration: none;
 }
+=======
+>>>>>>> 5c3bf4d2a33aea991519ec844c0eaa7e04c2657b
 .preview__button-icon {
   display: none;
 }
@@ -153,10 +161,13 @@ body {
   justify-content: center;
   margin: 0 4rem;
 }
+<<<<<<< HEAD
 .customize__empty-panel img {
   width: 70%;
 }
 
+=======
+>>>>>>> 5c3bf4d2a33aea991519ec844c0eaa7e04c2657b
 .links__customize {
   margin: 4rem;
 }

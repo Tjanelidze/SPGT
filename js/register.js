@@ -36,4 +36,19 @@ loginBtn.addEventListener("click", () => {
     allLabels[2].style.color = "#FF3939";
     allInputs[2].style.borderColor = "#FF3939";
   }
+
+  //email validation function
+  function validateEmail(email) {
+    const regex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+    return regex.test(email);
+  }
+
+  // check if user input is not an email
+  if (!validateEmail(allInputs[0].value) && allInputs[0].value.trim() !== "") {
+    errors[0].style.display = "block";
+    errors[0].textContent = "this is not an email";
+    errors[0].style.left = "60%";
+    allLabels[0].style.color = "#FF3939";
+    allInputs[0].style.borderColor = "#FF3939";
+  }
 });
