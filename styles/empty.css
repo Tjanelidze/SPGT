@@ -136,7 +136,7 @@ body {
 }
 .phone_phone-mock {
   top: 16%;
-  position: fixed;
+  /* position: fixed; */
 }
 
 .main__links {
@@ -261,12 +261,13 @@ body {
 /* media */
 
 /* platform  */
-.insert-link {
-  margin-bottom: auto;
-}
+/* .insert-link { */
+/* display: flex; */
+/* align-items: center; */
+/* } */
+
 .links__link-items {
   margin: 0 4rem;
-  /* width: 100%; */
 }
 
 .link__item {
