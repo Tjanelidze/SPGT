@@ -2,9 +2,11 @@ const newLinkBtn = document.getElementById("new-link");
 const emptyPanel = document.querySelector(".customize__empty-panel");
 const insertLink = document.querySelector(".insert-link");
 const cardWrapperDiv = document.querySelector(".card-wrapper");
+
 const phoneMockDiv = document.querySelector(".phone_phone-mock");
 const leftWholeDiv = document.querySelector(".main__links");
 let platformItems = JSON.parse(localStorage.getItem("userData")) || [];
+
 let linkCounter = 0;
 const menuList = [
   {
