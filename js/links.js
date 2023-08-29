@@ -87,6 +87,7 @@ const addItemToObj = (platform, link, icon) => {
     icon: "../assets/images/icon-github.svg" || icon,
   };
   platformItems.push(platformItem);
+  console.log(platformItems);
 };
 
 const saveData = (data) => {
@@ -237,7 +238,6 @@ newLinkBtn.addEventListener("click", () => {
 
     addItemToObj(selectedPlatform);
 
-    // Remove Handler
     const checkLinks = document.querySelectorAll(".links__link-items");
     const saveBtn = document.querySelector(".links_save button");
     if (checkLinks) {
@@ -247,6 +247,8 @@ newLinkBtn.addEventListener("click", () => {
       emptyPanel.style.display = "block";
       saveBtn.classList.add("btn-disabled");
     }
+
+    // Remove Handler
     const removeButton = document.querySelector(`#${platformSelectId}button`);
     removeButton.addEventListener("click", () => {
       linkCounter--;
@@ -260,6 +262,8 @@ newLinkBtn.addEventListener("click", () => {
       const linkIndexToRemove = Number(platformSelectId.split("-")[1]);
       if (linkIndexToRemove) {
         platformItems.splice(linkIndexToRemove - 1, 1);
+        saveData(platformItems);
+        window.location.reload();
       }
 
       const linkItemToRemove = document
@@ -301,15 +305,37 @@ saveBtn.addEventListener("click", () => {
   });
   if (!hasEmptyFields) {
     saveData(platformItems);
-    console.log("Data saved successfully!");
+    const successfullyModal = document.querySelector(".save-modal");
+    successfullyModal.style.bottom = "10px";
+    setTimeout(() => {
+      window.location.reload();
+    }, 1300);
   }
 });
 const storedData = localStorage.getItem("userData");
 const existingData = storedData ? JSON.parse(storedData) : [];
-const renderData = (linkCounter, item) => {
-  insertLink.insertAdjacentHTML(
+const renderCards = (linkCounter, selectedItem, item) => {
+  cardWrapperDiv.insertAdjacentHTML(
     "beforeend",
     `
+    <a href="${item.link}" class="link-${linkCounter} link-preview link-card-margin-top" target="_blank" style="background: ${selectedItem.color}" >
+      <div>
+        <img class="image" src="${selectedItem.icon}" alt="${selectedItem.name}">
+        <p class="link${linkCounter}">${item.platform}</p>
+      </div>
+      <img src="../assets/images/icon-arrow-right.svg" alt="arrow" class="arrow">
+    </a>
+    `
+  );
+};
+const renderData = (linkCounter, data) => {
+  console.log(data);
+  data.forEach((item) => {
+    linkCounter++;
+    console.log(item);
+    insertLink.insertAdjacentHTML(
+      "beforeend",
+      `
     <div class="links__link-items">
     <div class="link__item">
     <div class="item__header">
@@ -325,14 +351,13 @@ const renderData = (linkCounter, item) => {
         </div>
         <div class="item__platform">
         <img src="../assets/images/icon-chevron-down.svg" alt="">
-        <img class="platform-icon" src="../assets/images/icon-github.svg"/>
+        <img class="platform-icon" src="${item.icon}"/>
         <label for="platform-${linkCounter}">Platform</label>
         <select id="platform-${linkCounter}"class="platform-select" name="platforms" >
-        <img class="platform-icon" src="../assets/images/icon-github.svg"/>
         ${menuList
           .map((i) => {
             const isSelected = item.platform === i.name ? "selected" : "";
-            return `<option value="${item.platform}" ${isSelected} >${i.name}</option>`;
+            return `<option value="${item.platform}" ${isSelected} > ${i.name}</option>`;
           })
           .join("")}
           </select>
@@ -350,53 +375,35 @@ const renderData = (linkCounter, item) => {
       </div>
     </div>
     `
-  );
+    );
+  });
 };
 
 if (existingData.length > 0) {
+  const reLoad = () => {
+    renderData(linkCounter, existingData);
+  };
+  reLoad();
   phoneMockDiv.style.position = "fixed";
   leftWholeDiv.style.justifyContent = "start";
   insertLink.style.marginBottom = "auto";
+  const newData = [existingData];
+
+  linkCounter = 0;
   existingData.forEach((item) => {
-    linkCounter++;
+    newData.push(item);
     emptyPanel.style.display = "none";
-    renderData(linkCounter, item);
-    // console.log(linkCounter);
+    linkCounter++;
     const renderedRemove = document.querySelector(
       `#platform-${linkCounter}button`
     );
     renderedRemove.addEventListener("click", (e) => {
-      const parentElement = e.target.closest(".links__link-items");
-      const selectedPlatformName =
-        parentElement.querySelector(".platform-select").value;
-      const userData = JSON.parse(localStorage.getItem("userData"));
-
-      let itemCount = 0;
-      userData.forEach((item) => {
-        if (item.platform === selectedPlatformName) {
-          userData.splice(itemCount, 1);
-          saveData(userData);
-          const allLinks = document.querySelectorAll(".links__link-items");
-          allLinks.forEach((i) => {
-            i.remove();
-          });
-        }
-        // itemCount++;
-      });
-      renderData(linkCounter, item);
+      const newData = existingData.filter((i) => i.platform != item.platform);
+      console.log("new", newData);
+      saveData(newData);
+      location.reload();
     });
     const selectedItem = menuList.find((i) => i.name === item.platform);
-    cardWrapperDiv.insertAdjacentHTML(
-      "beforeend",
-      `
-      <a href="#" class="link-${linkCounter} link-preview link-card-margin-top" target="_blank" style="background: ${selectedItem.color}" >
-        <div>
-          <img class="image" src="${selectedItem.icon}" alt="${selectedItem.name}">
-          <p class="link${linkCounter}">${item.platform}</p>
-        </div>
-        <img src="../assets/images/icon-arrow-right.svg" alt="arrow" class="arrow">
-      </a>
-      `
-    );
+    renderCards(linkCounter, selectedItem, item);
   });
 }

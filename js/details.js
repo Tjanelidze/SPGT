@@ -116,8 +116,10 @@ if (retrievedData) {
     );
   });
 }
-fileUploader.addEventListener("change", () => {
+
+fileUploader.addEventListener("change", (e) => {
   const maxFileSize = 1024 * 1024;
+
   if (fileUploader.files[0].size < maxFileSize) {
     upload.style.backgroundImage = `url(${window.URL.createObjectURL(
       fileUploader.files[0]
@@ -143,11 +145,17 @@ saveBtn.addEventListener("click", (e) => {
       firstName: firstName.value,
       lastName: lastName.value,
       email: email.value,
+      photo: window.URL.createObjectURL(fileUploader.files[0]),
     };
     const jsonString = JSON.stringify(userInfo);
     localStorage.setItem("userInfo", jsonString);
     lastNameError.style.opacity = "0";
     firstNameError.style.opacity = "0";
+    const successfullyModal = document.querySelector(".save-modal");
+    successfullyModal.style.bottom = "10px";
+    setTimeout(() => {
+      successfullyModal.style.bottom = "-100px";
+    }, 1300);
   }
   if (firstName.value.trim() === "") {
     firstNameError.style.opacity = "1";
