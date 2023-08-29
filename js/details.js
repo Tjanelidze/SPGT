@@ -119,21 +119,26 @@ if (retrievedData) {
 
 fileUploader.addEventListener("change", (e) => {
   const maxFileSize = 1024 * 1024;
+  const image = e.target.files[0];
 
-  if (fileUploader.files[0].size < maxFileSize) {
-    upload.style.backgroundImage = `url(${window.URL.createObjectURL(
-      fileUploader.files[0]
-    )}`;
-    fileUploaderBox.style.backgroundImage = `url(${window.URL.createObjectURL(
-      fileUploader.files[0]
-    )}`;
+  const reader = new FileReader();
+
+  reader.readAsDataURL(image);
+  reader.addEventListener("load", () => {
+    // console.log(reader.result);
+    upload.style.backgroundImage = `url(${reader.result})`;
+    fileUploaderBox.style.backgroundImage = `url(${reader.result})`;
     fileUploaderBox.style.backgroundPosition = "center";
     fileUploaderBox.style.backgroundSize = "cover";
-  } else {
-    alert("Image dimensions must be below 1024x1024 pixels.");
-    fileUploader.value = "";
-    return;
-  }
+  });
+  // console.log(reader);
+
+  // if (fileUploader.files[0].size < maxFileSize) {
+  // } else {
+  //   alert("Image dimensions must be below 1024x1024 pixels.");
+  //   fileUploader.value = "";
+  //   return;
+  // }
 });
 
 saveBtn.addEventListener("click", (e) => {
