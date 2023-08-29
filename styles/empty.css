@@ -1,5 +1,6 @@
 body {
   height: 100vh;
+  /* position: relative; */
 }
 /* reusable classes */
 .links {
@@ -231,6 +232,7 @@ body {
   font-style: normal;
   font-weight: 600;
   background-color: #633cff;
+  cursor: pointer;
 }
 
 .links_save .btn-disabled {
@@ -435,3 +437,20 @@ body {
 }
 
 /* Card Preview */
+/* modal */
+.save-modal {
+  background-color: #1a1a1a;
+  position: fixed;
+  bottom: -100px;
+  transition: all 0.4s;
+  right: 50%;
+  transform: translateX(50%);
+  padding: 1.6rem;
+  border-radius: 1.2rem;
+  width: 300px;
+  text-align: center;
+}
+.save-modal p {
+  color: #f1f1f1;
+  font-size: 1.3rem;
+}
