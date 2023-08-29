@@ -42,7 +42,6 @@
     text-align: center;
     display: block;
   }
-<<<<<<< HEAD
   .email-err {
     top: 50%;
   }
@@ -60,6 +59,4 @@
   .password-err {
     top: 68%;
   }
-=======
->>>>>>> 5c3bf4d2a33aea991519ec844c0eaa7e04c2657b
 }
