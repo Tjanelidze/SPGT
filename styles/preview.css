@@ -23,6 +23,7 @@ body{
 }
 
 .Back-to-editor{
+    text-decoration: none;
     width: 159px;
     height:  46px;
     padding: 11px 27px;
@@ -101,55 +102,16 @@ body{
     text-decoration: none;
 }
 
-.github{
+.preview-card{
     display: flex;
     padding: 16px;
     align-items: center;
     gap: 8px;
     align-self: stretch;
     border-radius: 8px;
-    background: #1A1A1A;
 }
 
-.github p{
-    color: var(--white, #FFF);
-    font-size: 1.6rem;
-    font-style: normal;
-    font-weight: 400;
-    width: 153px;
-    line-height: 150%; /* 24px */
-}
-
-.youtube{
-    display: flex;
-    padding: 16px;
-    align-items: center;
-    gap: 8px;
-    align-self: stretch;
-    border-radius: 8px;
-    background: #EE3939;
-}
-
-.youtube p{
-    color: var(--white, #FFF);
-    font-size: 1.6rem;
-    font-style: normal;
-    font-weight: 400;
-    width: 153px;
-    line-height: 150%; /* 24px */
-}
-
-.linkedin{
-    display: flex;
-    padding: 16px;
-    align-items: center;
-    gap: 8px;
-    align-self: stretch;
-    border-radius: 8px;
-    background: #2D68FF;
-}
-
-.linkedin p{
+.preview-card p{
     color: var(--white, #FFF);
     font-size: 1.6rem;
     font-style: normal;

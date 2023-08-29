@@ -9,7 +9,7 @@
   <link rel="stylesheet" href="../styles/general.css">
   <link rel="stylesheet" href="../styles/details-media.css">
   <link rel="icon" type="image/png" sizes="32x32" href="../assets//images/favicon-32x32.png">
-
+  <script src="../js/details.js" defer></script>
 </head>
 
 <body>
@@ -36,18 +36,21 @@
         </a>
       </div>
       <div class="header__button">
-        <button class="button_preview btn-outline">
-          <a href="preview.html">
-            <span>Preview</span>
-            <img src="../assets/images/icon-preview-header.svg" class="preview__button-icon" />
-          </a>
-        </button>
+        <a href="preview.html" class="button_preview">
+          <span>Preview</span>
+          <img src="../assets/images/icon-preview-header.svg" alt="" class="preview__button-icon">
+        </a>
       </div>
     </header>
     <main class="main">
       <div class="main__phone">
         <div class="phone_phone-mock">
           <img src="../assets/images/illustration-phone-mockup.svg" alt="phone mockup">
+          <div class="card-wrapper">
+          </div>
+          <div id="upload-output"></div>
+          <div class="name"><span class="firstname"></span> <span class="lastname"></span></div>
+          <div class="useremail"></div>
         </div>
       </div>
       <div class="main__details">
@@ -77,15 +80,17 @@
               </div>
             </div>
             <div class="form__user-info ">
-              <div>
+              <div class="user__first-name">
                 <label>First name*</label>
                 <input type="text" placeholder="e.g John" />
+                <p>Cant be empty</p>
               </div>
-              <div>
+              <div class="user__last-name">
                 <label>Last name*</label>
                 <input type="text" placeholder="e.g Appleseed" />
+                <p>Cant be empty</p>
               </div>
-              <div>
+              <div class="user__email">
                 <label>Email</label>
                 <input type="email" placeholder="e.g email@example.com" />
               </div>
