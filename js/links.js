@@ -87,7 +87,6 @@ const addItemToObj = (platform, link, icon) => {
     icon: "../assets/images/icon-github.svg" || icon,
   };
   platformItems.push(platformItem);
-  console.log(platformItems);
 };
 
 const saveData = (data) => {
@@ -280,7 +279,16 @@ newLinkBtn.addEventListener("click", () => {
     });
   } else {
     // TODO:error message
-    console.log("You can't add any more items.");
+    // console.log("You can't add any more items.");
+    const successfullyModal = document.querySelector(".save-modal");
+
+    successfullyModal.textContent = "You can't add any more items";
+    successfullyModal.style.color = "#fff";
+    successfullyModal.style.bottom = "10px";
+    successfullyModal.style.background = "#FF3939";
+    setTimeout(() => {
+      successfullyModal.style.bottom = "-100px";
+    }, 1400);
   }
 });
 const saveBtn = document.querySelector(".links_save button");
@@ -306,7 +314,12 @@ saveBtn.addEventListener("click", () => {
   if (!hasEmptyFields) {
     saveData(platformItems);
     const successfullyModal = document.querySelector(".save-modal");
+
+    successfullyModal.textContent =
+      "Your changes have been successfully saved!";
+    successfullyModal.style.color = "#fff";
     successfullyModal.style.bottom = "10px";
+    successfullyModal.style.background = "#1A1A1A";
     setTimeout(() => {
       window.location.reload();
     }, 1300);
@@ -329,10 +342,8 @@ const renderCards = (linkCounter, selectedItem, item) => {
   );
 };
 const renderData = (linkCounter, data) => {
-  console.log(data);
   data.forEach((item) => {
     linkCounter++;
-    console.log(item);
     insertLink.insertAdjacentHTML(
       "beforeend",
       `
@@ -399,11 +410,32 @@ if (existingData.length > 0) {
     );
     renderedRemove.addEventListener("click", (e) => {
       const newData = existingData.filter((i) => i.platform != item.platform);
-      console.log("new", newData);
       saveData(newData);
       location.reload();
     });
     const selectedItem = menuList.find((i) => i.name === item.platform);
     renderCards(linkCounter, selectedItem, item);
   });
+}
+
+const info = localStorage.getItem("userInfo");
+const userImage = localStorage.getItem("userImage");
+const userInfo = JSON.parse(info);
+
+const userName = document.querySelector(
+  ".phone__user-name .user-name__first-name"
+);
+const lastName = document.querySelector(
+  ".phone__user-name .user-name__last-name"
+);
+const userEmail = document.querySelector(".phone__user-email");
+const userAvatar = document.querySelector(".phone__avatar");
+
+if (userInfo && userImage) {
+  userName.textContent = userInfo.firstName;
+  lastName.textContent = userInfo.lastName;
+  userEmail.textContent = userInfo.email;
+  userAvatar.style.background = `url(${userImage})`;
+  userAvatar.style.backgroundPosition = "center";
+  userAvatar.style.backgroundSize = "cover";
 }
