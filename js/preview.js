@@ -76,7 +76,10 @@ const dataLinks = JSON.parse(localStorage.getItem("userData"));
 const fullName = document.querySelector("h2");
 const email = document.querySelector("p");
 const links = document.querySelector(".wrapper");
+const image = document.querySelector(".avatar");
+const img = localStorage.getItem("userImage");
 
+image.style.backgroundImage = `url(${img})`;
 fullName.innerHTML = dataPerson.firstName + " " + dataPerson.lastName;
 email.innerHTML = dataPerson.email;
 
