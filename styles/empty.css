@@ -125,6 +125,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  position: relative;
 }
 .phone_phone-mock img {
   position: relative;
@@ -453,4 +454,39 @@ body {
 .save-modal p {
   color: #f1f1f1;
   font-size: 1.3rem;
+}
+.user-wrapper {
+  position: relative;
+}
+.user-info {
+  position: absolute;
+  z-index: 10;
+}
+.phone__avatar {
+  width: 9.3rem;
+  height: 9.3rem;
+  background-color: red;
+  border-radius: 50%;
+  top: 6.6rem;
+  right: 50%;
+  transform: translateX(50%);
+}
+
+.phone__user-name {
+  background-color: rgb(255, 255, 255);
+  width: 90%;
+  color: #000000;
+  font-size: 1.6rem;
+  top: 18.1rem;
+  left: 1.4rem;
+  text-align: center;
+}
+.phone__user-email {
+  background-color: rgb(255, 255, 255);
+  width: 90%;
+  top: 21.1rem;
+  left: 1.4rem;
+  font-size: 1.3rem;
+  color: #333;
+  text-align: center;
 }

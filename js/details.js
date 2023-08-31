@@ -124,33 +124,32 @@ fileUploader.addEventListener("change", (e) => {
   const reader = new FileReader();
 
   reader.readAsDataURL(image);
-  reader.addEventListener("load", () => {
-    // console.log(reader.result);
-    upload.style.backgroundImage = `url(${reader.result})`;
-    fileUploaderBox.style.backgroundImage = `url(${reader.result})`;
-    fileUploaderBox.style.backgroundPosition = "center";
-    fileUploaderBox.style.backgroundSize = "cover";
-  });
-  // console.log(reader);
 
-  // if (fileUploader.files[0].size < maxFileSize) {
-  // } else {
-  //   alert("Image dimensions must be below 1024x1024 pixels.");
-  //   fileUploader.value = "";
-  //   return;
-  // }
+  reader.addEventListener("load", () => {
+    if (fileUploader.files[0].size < maxFileSize) {
+      upload.style.backgroundImage = `url(${reader.result})`;
+      fileUploaderBox.style.backgroundImage = `url(${reader.result})`;
+      fileUploaderBox.style.backgroundPosition = "center";
+      fileUploaderBox.style.backgroundSize = "cover";
+      localStorage.setItem("userImage", reader.result);
+    } else {
+      alert("Image dimensions must be below 1024x1024 pixels.");
+      fileUploader.value = "";
+      return;
+    }
+  });
 });
 
 saveBtn.addEventListener("click", (e) => {
   e.preventDefault();
   const firstNameError = document.querySelector(".user__first-name p");
   const lastNameError = document.querySelector(".user__last-name p");
+
   if (firstName.value.trim() != "" && lastName.value.trim() != "") {
     const userInfo = {
       firstName: firstName.value,
       lastName: lastName.value,
       email: email.value,
-      photo: window.URL.createObjectURL(fileUploader.files[0]),
     };
     const jsonString = JSON.stringify(userInfo);
     localStorage.setItem("userInfo", jsonString);
@@ -162,6 +161,7 @@ saveBtn.addEventListener("click", (e) => {
       successfullyModal.style.bottom = "-100px";
     }, 1300);
   }
+
   if (firstName.value.trim() === "") {
     firstNameError.style.opacity = "1";
   }
@@ -170,6 +170,7 @@ saveBtn.addEventListener("click", (e) => {
   }
 });
 const info = localStorage.getItem("userInfo");
+const userImage = localStorage.getItem("userImage");
 const retrievedInfo = JSON.parse(info);
 if (retrievedInfo) {
   firstName.value = retrievedInfo.firstName || "";
@@ -179,4 +180,8 @@ if (retrievedInfo) {
   firstN.textContent = firstName.value;
   lastN.textContent = lastName.value;
   userEmail.textContent = email.value;
+  upload.style.backgroundImage = `url(${userImage})`;
+  fileUploaderBox.style.backgroundImage = `url(${userImage})`;
+  fileUploaderBox.style.backgroundPosition = "center";
+  fileUploaderBox.style.backgroundSize = "cover";
 }
