@@ -183,6 +183,10 @@ body {
   align-items: center;
   justify-content: center;
   margin: 0 4rem;
+  background: #fafafa;
+  padding-top: 3.5rem;
+  padding-bottom: 3.5rem;
+  border-radius: 1.2rem;
 }
 
 .customize__empty-panel img {
@@ -191,6 +195,7 @@ body {
 
 .links__customize {
   margin: 4rem;
+  margin-bottom: 1rem;
 }
 
 .empty-panel__content {
@@ -278,6 +283,9 @@ body {
   flex-direction: column;
   margin: 2rem;
   gap: 1.2rem;
+  background-color: #fafafa;
+  padding: 2rem;
+  border-radius: 1.2rem;
 }
 
 .link__item div {
