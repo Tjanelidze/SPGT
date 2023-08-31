@@ -50,6 +50,7 @@ body{
 }
 
 .profile{
+    text-align: center;
     top: 58%;
     position: absolute;
     width: 349px;
@@ -66,7 +67,9 @@ body{
 }
 
 
-.profile-pic{
+.avatar{
+    background-size: cover;
+    background-position: center;
     width: 104px;
     height: 104px;
     border-radius: 104px;
@@ -92,6 +95,7 @@ body{
 }
 
 .wrapper{
+    text-align: left;
     display: flex;
     flex-direction: column;
     gap: 20px;
