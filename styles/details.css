@@ -233,7 +233,9 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin: 2rem;
+  padding: 2rem;
+  background-color: #fafafa;
+  border-radius: 1.2rem;
 }
 
 .box-wrapper {
@@ -267,10 +269,13 @@ output {
 form {
   display: flex;
   flex-direction: column;
+  gap: 2.4rem;
 }
 
 .form__user-info {
-  margin: 2rem;
+  padding: 2rem;
+  background-color: #fafafa;
+  border-radius: 1.2rem;
 }
 
 .form__user-info div {
