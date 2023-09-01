@@ -23,7 +23,7 @@ def create_app():
 
   from .models import User
 
-  create_database(app)
+  
 
   login_manager = LoginManager();
   login_manager.login_view = 'auth.login'
@@ -33,6 +33,8 @@ def create_app():
   def load_user(id):
     return User.query.get(int(id))
 
+  create_database(app)
+  
   return app
 
 def create_database(app):
