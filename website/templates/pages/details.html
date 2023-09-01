@@ -1,9 +1,13 @@
 {% extends 'base.html' %}
 
 {% block imports %}
-<link rel="stylesheet" href="../static/styles/details.css">
-<link rel="stylesheet" href="../static/styles/details-media.css">
-<script src="../static/js/details.js" defer></script>
+<link rel="stylesheet" href="{{url_for('static', filename='styles/details.css')}}" >
+<link rel="stylesheet" href="{{url_for('static', filename='styles/details-media.css')}}" >
+<script
+      defer
+      type="text/javascript"
+      src="{{url_for('static', filename='js/details.js')}}"
+    ></script>
 {% endblock %}
 
 {% block title %}Profile Details{% endblock %}
