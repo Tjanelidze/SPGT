@@ -1,18 +1,15 @@
-{% extends 'base.html' %}
-{% block imports %}
-<link rel="stylesheet" href="../static/styles/preview.css">
-<link rel="stylesheet" href="../static/styles/static/mobile/preview-mobile.css">
+{% extends 'base.html' %} {% block imports %}
+<link rel="stylesheet" href="../static/styles/preview.css" />
+<link rel="stylesheet" href="../static/styles/mobile/preview-mobile.css">
 <script src="../static/js/preview.js" defer></script>
-{% endblock %}
+{% endblock %} {% block title %} Preview {% endblock %} {% block content%}
 
-{% block title %} Preview {% endblock %}
+<div class="share">
+  <a href="empty" class="Back-to-editor">Back to Editor</a>
+  <button class="share-link">Share Link</button>
+</div>
 
-{% block content%}
 <div class="purple">
-  <div class="share">
-    <a href="empty" class="Back-to-editor">Back to Editor</a>
-    <button class="share-link">Share Link</button>
-  </div>
 </div>
 
 <div class="profile">
@@ -22,8 +19,12 @@
     <p></p>
   </div>
 
-  <div class="wrapper">
-  </div>
+  <div class="wrapper"></div>
 </div>
-</body>
+
+<div class="save-modal">
+  <img src="../static/assets/images/icon-link-copied-to-clipboard.svg" alt="">
+  <p>Your changes have been successfully saved!</p>
+</div>
+
 {% endblock %}

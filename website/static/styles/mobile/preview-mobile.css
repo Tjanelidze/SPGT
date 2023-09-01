@@ -6,14 +6,26 @@
 
     .purple{
         background-color: #fff;
+        display: none;
     }
 
     .share{
         margin: 0;
+        position: static;
+    }
+
+    .save-modal{
+        font-size: 12px;
+        width: 340px;
+        text-align: center;
     }
 
     .profile{
-        top: 138px;
+        /* top: 138px; */
+        padding-top: 30px;
+        margin-top: 30px;
+        transform: none;
+        position: static;
         box-shadow: none;
     }
 
