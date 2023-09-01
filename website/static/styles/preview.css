@@ -1,25 +1,34 @@
 body {
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
+     /* copy */
+     height: 100vh;
+     position: relative;
+     display: flex;
+     align-items: center;
+     flex-direction: column;
 }
 
 .purple {
-  width: 100%;
-  height: 357px;
-  border-radius: 0px 0px 32px 32px;
-  background-color: #633cff;
+    /* copy */
+    position: relative;
+    width: 100%;
+    height: 357px;
+    border-radius: 0px 0px 32px 32px;
+    background-color: #633CFF;
 }
 
 .share {
-  display: flex;
-  justify-content: space-between;
-  padding: 16px 16px 16px 24px;
-  border-radius: 12px;
-  background-color: #fff;
-  margin: 24px;
+        /* copy */
+
+        z-index: 99;
+        position: absolute;
+        width: 100%;
+        max-width: 1352px;
+        display: flex;
+        justify-content: space-between;
+        padding: 16px 16px 16px 24px;
+        border-radius: 12px;
+        background-color: #fff;
+        margin: 24px;
 }
 
 .Back-to-editor {
@@ -50,14 +59,15 @@ body {
 }
 
 .profile {
-  text-align: center;
-  top: 58%;
-  position: absolute;
-  width: 349px;
-  padding: 48px 56px;
-  border-radius: 24px;
-  background: #fff;
-  box-shadow: 0px 0px 32px 0px rgba(0, 0, 0, 0.1);
+       /* copy */
+
+       transform: translateY(38%);
+       position: absolute;
+       width: 349px;
+       padding: 48px 56px;
+       border-radius: 24px;
+       background: #FFF;
+       box-shadow: 0px 0px 32px 0px rgba(0, 0, 0, 0.10);
 }
 
 .profile-details {
@@ -127,4 +137,20 @@ body {
   width: 20px;
   height: 20px;
   filter: brightness(250%);
+}
+
+.save-modal{
+  /* copy */
+  display: flex;
+  gap: 8px;
+  position: fixed;
+  bottom: -159px;
+  border-radius: 12px;
+  background-color: #333;
+  font-size: 16px;
+  font-weight: 600;
+  color: #FFF;
+  box-shadow: 0px 0px 32px 0px rgba(0, 0, 0, 0.10);
+  padding: 16px 24px;
+  transition: all 0.5s;
 }
