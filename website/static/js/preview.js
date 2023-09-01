@@ -78,10 +78,25 @@ const email = document.querySelector("p");
 const links = document.querySelector(".wrapper");
 const image = document.querySelector(".avatar");
 const img = localStorage.getItem("userImage");
+const shareLink = document.querySelector(".share-link");
+
 
 image.style.backgroundImage = `url(${img})`;
 fullName.innerHTML = dataPerson.firstName + " " + dataPerson.lastName;
 email.innerHTML = dataPerson.email;
+
+shareLink.addEventListener("click", () => {
+
+  console.log(window.location.href);
+  let currentURL = window.location.href;
+  navigator.clipboard.writeText(currentURL);
+
+  const save = document.querySelector(".save-modal");
+  save.style.bottom = "18px";
+  setTimeout(() => {
+      save.style.bottom = "-160px";
+  }, 1500);
+});
 
 dataLinks.map((link) => {
   let findEl = menuList.find((item) => item.name === link.platform);
