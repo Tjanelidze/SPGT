@@ -1,8 +1,12 @@
 {% extends 'base.html' %}
 {% block imports %}
-<link rel="stylesheet" href="../static/styles/empty.css">
-<link rel="stylesheet" href="../static/styles/empty-media.css">
-<script src="../static/js/links.js" defer></script>
+<link rel="stylesheet" href="{{url_for('static', filename='styles/empty.css')}}" >
+<link rel="stylesheet" href="{{url_for('static', filename='styles/empty-media.css')}}" >
+<script
+      defer
+      type="text/javascript"
+      src="{{url_for('static', filename='js/links.js')}}"
+    ></script>
 {% endblock %}
 
 {% block title %}home{% endblock %}
