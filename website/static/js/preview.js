@@ -103,8 +103,8 @@ dataLinks.map((link) => {
   links.insertAdjacentHTML(
     "beforeend",
     `<a style="background:${findEl.color}" href="${link.link}" class="preview-card">
-        <img src="${link.icon}" class="image"/>
-        <p>${link.platform}</p>
+        <img src="${link.icon}" class="image" style=filter:${link.platform === 'Frontend Mentor' ? 'brightness(0%)' : ''}>
+        <p style=color:${link.platform === 'Frontend Mentor' ? '#333' : '#fff'}>${link.platform}</p>
         <img src="../static/assets/images/icon-arrow-right.svg" alt="arrow" class="arrow"/>
       </a>`
   );
