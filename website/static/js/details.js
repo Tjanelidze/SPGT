@@ -107,8 +107,8 @@ if (retrievedData) {
       `
     <a style="background: ${color}" href="${el.link}" class="link-preview link-card-margin-top" target="_blank" >
       <div>
-        <img class="image" src="${el.icon}" alt="github">
-        <p class="link">${el.platform}</p>
+        <img class="image" src="${el.icon}" alt="github"  style=filter:${el.platform === 'Frontend Mentor' ? 'brightness(0%)' : ''}>
+        <p class="link" style=color:${el.platform === 'Frontend Mentor' ? '#333' : '#fff'}>${el.platform}</p>
       </div>
       <img src="../static/assets/images/icon-arrow-right.svg" alt="arrow" class="arrow">
     </a>

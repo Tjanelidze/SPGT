@@ -19,6 +19,7 @@ const menuList = [
     icon: "../static/assets/images/icon-frontend-mentor.svg",
     name: "Frontend Mentor",
     color: "#FFF",
+    fontColor:'#333',
     placeHolder: "https://www.frontendmentor.io/",
   },
   {
@@ -91,6 +92,7 @@ const menuList = [
     icon: "../static/assets/images/icon-stack-overflow.svg",
     name: "Stack Overflow",
     color: "#EC7100",
+
     placeHolder: "https://stackoverflow.com/",
   },
 ];
@@ -137,16 +139,21 @@ const changePlatformUrl = (platformSelectId, linkId, URLInput) => {
   }
 };
 const changePlatformName = (platformSelectId, platformSelect, platformIcon) => {
-  const linkIndex = Number(platformSelectId.split("-")[1]);
-
+  const linkIndex = Number(platformSelectId.split("-")[1]);   
+   
   if (linkIndex) {
     platformItems[linkIndex - 1].platform = platformSelect.value;
     platformItems[linkIndex - 1].icon = platformIcon;
     const card = cardWrapperDiv.querySelector(`.link${linkIndex}`);
+   
     const cardIMG = cardWrapperDiv.querySelector(`.link-${linkIndex} img`);
     if (card) {
       card.textContent = platformSelect.value;
       cardIMG.src = platformIcon;
+      if(card.textContent === 'Frontend Mentor'){
+        card.style.color = '#333'
+        cardIMG.style.filter='brightness(0%)'
+      }
     }
   }
 };
@@ -346,13 +353,14 @@ saveBtn.addEventListener("click", () => {
 const storedData = localStorage.getItem("userData");
 const existingData = storedData ? JSON.parse(storedData) : [];
 const renderCards = (linkCounter, selectedItem, item) => {
+  console.log(item)
   cardWrapperDiv.insertAdjacentHTML(
     "beforeend",
     `
     <a href="${item.link}" class="link-${linkCounter} link-preview link-card-margin-top" target="_blank" style="background: ${selectedItem.color}" >
       <div>
-        <img class="image" src="${selectedItem.icon}" alt="${selectedItem.name}">
-        <p class="link${linkCounter}">${item.platform}</p>
+        <img class="image" src="${selectedItem.icon}" alt="${selectedItem.name}" style='filter:${item.platform === 'Frontend Mentor' ? 'brightness(0%)': ''} '>
+        <p class="link${linkCounter}" style='color:${item.platform === 'Frontend Mentor' ? '#333': '#fff'}' >${item.platform}</p>
       </div>
       <img src="../static/assets/images/icon-arrow-right.svg" alt="arrow" class="arrow">
     </a>
