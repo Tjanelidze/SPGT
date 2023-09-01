@@ -2,6 +2,8 @@
 ![preview](https://github.com/Tjanelidze/SPGT/assets/84060643/b52f99cb-7fac-42f4-a5d2-29943c579eae)
 
 
+## Live: [link-sharing](https://spgt-b489df8b0cfa.herokuapp.com/)
+
 ## Overview
 This repository contains the code for a web application that allows users to register, login, share links, and view their profile details. The project uses Python Flask for the backend and HTML, CSS, and JavaScript for the frontend.
 
