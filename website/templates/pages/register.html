@@ -1,70 +1,62 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends 'base.html' %}
+{% block imports %}
+<link rel="stylesheet" href="../static/styles/register.css" />
+<link rel="stylesheet" href="../static/styles/mobile/register-mobile.css" />
+<script src="../static/js/register.js" defer></script>
+{% endblock %}
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+{% block title %}Register {% endblock %}
 
-  <link rel="icon" type="image/png" sizes="32x32" href="../assets/images/favicon-32x32.png" />
-  <link rel="stylesheet" href="../styles/general.css" />
-  <link rel="stylesheet" href="../styles/register.css" />
-  <link rel="stylesheet" href="../styles/mobile/register-mobile.css" />
-
-  <title>Frontend Mentor | Link-sharing app</title>
-</head>
-
-<body>
-  <div class="register-div">
-    <header>
-      <div class="devlink-div">
-        <img class="main-logo" src="../assets/images/logo-devlinks-large.svg" alt="logo" />
+{% block content%}
+<div class="register-div">
+  <header>
+    <div class="devlink-div">
+      <img class="main-logo" src="../static/assets/images/logo-devlinks-large.svg" alt="logo" />
+    </div>
+  </header>
+  <main>
+    <strong class="acccount-Creating-strong">Create account</strong>
+    <p class="instruction-p">Let's get you started sharing your links!</p>
+    <form method="POST">
+      <div class="first-form">
+        <label for="email">Email address</label>
+        <input name="email" type="email" id="email" placeholder="e.g. alex@email.com" />
+        <div class="envelope-div icon">
+          <img class="envelope" src="../static/assets/images/icon-email.svg" />
+        </div>
+        <span class="email-err err">Can't be empty</span>
       </div>
-    </header>
-    <main>
-      <strong class="acccount-Creating-strong">Create account</strong>
-      <p class="instruction-p">Let's get you started sharing your links!</p>
-      <form>
-        <div class="first-form">
-          <label for="email">Email address</label>
-          <input type="email" id="email" placeholder="e.g. alex@email.com" />
-          <div class="envelope-div icon">
-            <img class="envelope" src="../assets/images/icon-email.svg" />
-          </div>
-          <span class="email-err err">Can't be empty</span>
+      <div class="second-form">
+        <label for="password">Create password</label>
+        <input name="password" type="password" id="password" placeholder="At least 8 characters" />
+        <div class="lock-div icon">
+          <img class="lock" src="../static/assets/images/icon-password.svg" />
         </div>
-        <div class="second-form">
-          <label for="password">Create password</label>
-          <input type="password" id="password" placeholder="At least 8 characters" />
-          <div class="lock-div icon">
-            <img class="lock" src="../assets/images/icon-password.svg" />
-          </div>
-          <span class="password-err err">Can't be empty</span>
+        <span class="password-err err">Can't be empty</span>
+      </div>
+      <div class="third-form">
+        <label for="second-password">Confirm password</label>
+        <input name="sec-password" type="password" id="second-password" placeholder="At least 8 characters" />
+        <div class="second-lock-div icon">
+          <img class="second-lock" src="../static/assets/images/icon-password.svg" />
         </div>
-
-        <div class="third-form">
-          <label for="second-password">Confirm password</label>
-          <input type="password" id="second-password" placeholder="At least 8 characters" />
-          <div class="second-lock-div icon">
-            <img class="second-lock" src="../assets/images/icon-password.svg" />
-          </div>
-          <span class="confirm-password-err err">Can't be empty</span>
-        </div>
-      </form>
-
+        <span class="confirm-password-err err">Can't be empty</span>
+      </div>
       <p class="about-password">
         Password must contain at least 8 characters
       </p>
+      <button type="submit" id="register-btn">Create new account</button>
+    </form>
+    {% with messages = get_flashed_messages(with_categories=true) %} {% if
+    messages %} {% for category, message in messages %} {% if category ==
+    'error' %}
+    <span class="db-err">{{ message }}</span>
+    {% endif %} {% endfor %} {% endif %} {% endwith %}
 
-      <button id="register-btn">Create new account</button>
-
-      <p class="question">
-        Don't have an account?
-        <a href="../index.html" class="question-login">Login</a>
-      </p>
-    </main>
-  </div>
-
-  <script src="../js/register.js"></script>
-</body>
-
-</html>
+    <p class="question">
+      Don't have an account?
+      <a href="/" class="question-login">Login</a>
+    </p>
+  </main>
+</div>
+{% endblock %}

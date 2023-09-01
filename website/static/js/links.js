@@ -10,81 +10,96 @@ let platformItems = JSON.parse(localStorage.getItem("userData")) || [];
 let linkCounter = 0;
 const menuList = [
   {
-    icon: "../assets/images/icon-github.svg",
+    icon: "../static/assets/images/icon-github.svg",
     name: "Github",
     color: "#1A1A1A",
+    placeHolder: "https://www.github.com/johnappleseed",
   },
   {
-    icon: "../assets/images/icon-frontend-mentor.svg",
+    icon: "../static/assets/images/icon-frontend-mentor.svg",
     name: "Frontend Mentor",
     color: "#FFF",
+    placeHolder: "https://www.frontendmentor.io/",
   },
   {
-    icon: "../assets/images/icon-twitter.svg",
+    icon: "../static/assets/images/icon-twitter.svg",
     name: "Twitter",
     color: "#43B7E9",
+    placeHolder: "https://twitter.com/home",
   },
   {
-    icon: "../assets/images/icon-linkedin.svg",
+    icon: "../static/assets/images/icon-linkedin.svg",
     name: "LinkedIn",
     color: "#2D68FF",
+    placeHolder: "https://twitter.com/home",
   },
   {
-    icon: "../assets/images/icon-youtube.svg",
+    icon: "../static/assets/images/icon-youtube.svg",
     name: "YouTube",
     color: "#EE3939",
+    placeHolder: "https://twitter.com/home",
   },
   {
-    icon: "../assets/images/icon-facebook.svg",
+    icon: "../../static/assets/images/icon-facebook.svg",
     name: "Facebook",
     color: "#2442AC",
+    placeHolder: "https://www.youtube.com/",
   },
   {
-    icon: "../assets/images/icon-twitch.svg",
+    icon: "../static/assets/images/icon-twitch.svg",
     name: "Twitch",
     color: "#EE3FC8",
+    placeHolder: "https://www.twitch.tv/",
   },
   {
-    icon: "../assets/images/icon-devto.svg",
+    icon: "../static/assets/images/icon-devto.svg",
     name: "Dev.to",
     color: "#333",
+    placeHolder: "https://dev.to/",
   },
   {
-    icon: "../assets/images/icon-codewars.svg",
+    icon: "../../static/assets/images/icon-codewars.svg",
     name: "Codewars",
     color: "#8A1A50",
+    placeHolder: "https://www.codewars.com/dashboard",
   },
   {
-    icon: "../assets/images/icon-codepen.svg",
+    icon: "../static/assets/images/icon-codepen.svg",
     name: "Codepen",
     color: "#302267",
+    placeHolder: "https://codepen.io/trending",
   },
   {
-    icon: "../assets/images/icon-freecodecamp.svg",
+    icon: "../static/assets/images/icon-freecodecamp.svg",
     name: "freeCodeCamp",
     color: "#302267",
+    placeHolder: "https://www.freecodecamp.org/",
   },
   {
-    icon: "../assets/images/icon-gitlab.svg",
+    icon: "../static/assets/images/icon-gitlab.svg",
     name: "GitLab",
     color: "#EB4925",
+    placeHolder: "https://about.gitlab.com/",
   },
   {
-    icon: "../assets/images/icon-hashnode.svg",
+    icon: "../static/assets/images/icon-hashnode.svg",
     name: "Hashnode",
     color: "#0330D1",
+    placeHolder: "https://hashnode.com/",
   },
   {
-    icon: "../assets/images/icon-stack-overflow.svg",
+    icon: "../static/assets/images/icon-stack-overflow.svg",
     name: "Stack Overflow",
     color: "#EC7100",
+    placeHolder: "https://stackoverflow.com/",
   },
 ];
+
 const addItemToObj = (platform, link, icon) => {
   const platformItem = {
     platform,
     link,
-    icon: "../assets/images/icon-github.svg" || icon,
+    icon: "../../static/assets/images/icon-github.svg" || icon,
   };
   platformItems.push(platformItem);
 };
@@ -142,7 +157,7 @@ if (storData) {
 } else {
   save.classList.add("btn-disabled");
 }
-// linkCounter = parsedData.length;
+
 newLinkBtn.addEventListener("click", () => {
   phoneMockDiv.style.position = "fixed";
   leftWholeDiv.style.justifyContent = "start";
@@ -152,6 +167,7 @@ newLinkBtn.addEventListener("click", () => {
   const platformSelectId = `platform-${linkCounter}`;
   if (linkCounter <= 5) {
     const linkId = linkCounter;
+
     insertLink.insertAdjacentHTML(
       "beforeend",
       `
@@ -169,8 +185,8 @@ newLinkBtn.addEventListener("click", () => {
               </div>
             </div>
             <div class="item__platform">
-              <img src="../assets/images/icon-chevron-down.svg" alt="">
-              <img class="platform-icon" src="../assets/images/icon-github.svg"/>
+              <img src="../static/assets/images/icon-chevron-down.svg" alt="">
+              <img class="platform-icon" src="../static/assets/images/icon-github.svg"/>
               <label for="${platformSelectId}">Platform</label>
               <select id="${platformSelectId}"class="platform-select" name="platforms">
               <img class="platform-icon" src="../assets/images/icon-github.svg"/>
@@ -186,7 +202,7 @@ newLinkBtn.addEventListener("click", () => {
               <div>
                 <input type="text" name="link" id="link${linkCounter}" placeholder="e.g. https://www.github.com/johnappleseed">
                 <p>error</p>
-                <img src="../assets/images/icon-link.svg" alt="">
+                <img src="../static/assets/images/icon-link.svg" alt="">
               </div>
             </div>
           </div>
@@ -203,10 +219,10 @@ newLinkBtn.addEventListener("click", () => {
       `
       <a href="#" class="link-${linkCounter} link-preview link-card-margin-top" target="_blank">
         <div>
-          <img class="image" src="../assets/images/icon-github.svg" alt="github">
+          <img class="image" src="../static/assets/images/icon-github.svg" alt="github">
           <p class="link${linkCounter}">${selectedPlatform}</p>
         </div>
-        <img src="../assets/images/icon-arrow-right.svg" alt="arrow" class="arrow">
+        <img src="../static/assets/images/icon-arrow-right.svg" alt="arrow" class="arrow">
       </a>
       `
     );
@@ -279,7 +295,6 @@ newLinkBtn.addEventListener("click", () => {
     });
   } else {
     // TODO:error message
-    // console.log("You can't add any more items.");
     const successfullyModal = document.querySelector(".save-modal");
 
     successfullyModal.textContent = "You can't add any more items";
@@ -295,19 +310,22 @@ const saveBtn = document.querySelector(".links_save button");
 saveBtn.addEventListener("click", () => {
   const checkLinks = document.querySelectorAll(".item__url input");
   const errorMessage = document.querySelectorAll(`.item__url div p`);
-  // TODO: more validation
   errorMessage.forEach((error) => {
     error.style.display = "none";
   });
   let hasEmptyFields = false;
+  const urlPattern = /^(http|https):\/\//i;
   checkLinks.forEach((input, index) => {
     if (input.value.trim() === "") {
       errorMessage[index].style.display = "block";
       hasEmptyFields = true;
     }
     if (hasEmptyFields) {
-      // TODO: more error messages
       errorMessage[index].textContent = "cant be empty";
+      hasEmptyFields = true;
+    } else if (!urlPattern.test(input.value)) {
+      errorMessage[index].style.display = "block";
+      errorMessage[index].textContent = "URL isn't correct";
       hasEmptyFields = true;
     }
   });
@@ -336,7 +354,7 @@ const renderCards = (linkCounter, selectedItem, item) => {
         <img class="image" src="${selectedItem.icon}" alt="${selectedItem.name}">
         <p class="link${linkCounter}">${item.platform}</p>
       </div>
-      <img src="../assets/images/icon-arrow-right.svg" alt="arrow" class="arrow">
+      <img src="../static/assets/images/icon-arrow-right.svg" alt="arrow" class="arrow">
     </a>
     `
   );
@@ -361,7 +379,7 @@ const renderData = (linkCounter, data) => {
           </div>
         </div>
         <div class="item__platform">
-        <img src="../assets/images/icon-chevron-down.svg" alt="">
+        <img src="../static/assets/images/icon-chevron-down.svg" alt="">
         <img class="platform-icon" src="${item.icon}"/>
         <label for="platform-${linkCounter}">Platform</label>
         <select id="platform-${linkCounter}"class="platform-select" name="platforms" >
@@ -380,7 +398,7 @@ const renderData = (linkCounter, data) => {
             item.link
           }  type="text" name="link" id="link${linkCounter}" placeholder="e.g. https://www.github.com/johnappleseed">
             <p>error</p>
-            <img src="../assets/images/icon-link.svg" alt="">
+            <img src="../static/assets/images/icon-link.svg" alt="">
           </div>
         </div>
       </div>

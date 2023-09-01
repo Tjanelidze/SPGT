@@ -1,36 +1,29 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends 'base.html' %}
+{% block imports %}
+<link rel="stylesheet" href="../static/styles/preview.css">
+<link rel="stylesheet" href="../static/styles/static/mobile/preview-mobile.css">
+<script src="../static/js/preview.js" defer></script>
+{% endblock %}
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+{% block title %} Preview {% endblock %}
 
-  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
-  <link rel="stylesheet" href="../styles/general.css">
-  <link rel="stylesheet" href="../styles/preview.css">
-  <link rel="stylesheet" href="../styles/mobile/preview-mobile.css">
-  <script src="../js/preview.js" defer></script>
-  <title>Frontend Mentor | Link-sharing app</title>
-</head>
+{% block content%}
+<div class="purple">
+  <div class="share">
+    <a href="empty" class="Back-to-editor">Back to Editor</a>
+    <button class="share-link">Share Link</button>
+  </div>
+</div>
 
-<body>
-  <div class="purple">
-    <div class="share">
-      <a href="./empty.html" class="Back-to-editor">Back to Editor</a>
-      <button class="share-link">Share Link</button>
-    </div>
+<div class="profile">
+  <div class="profile-details">
+    <div class="avatar"></div>
+    <h2></h2>
+    <p></p>
   </div>
 
-  <div class="profile">
-    <div class="profile-details">
-      <div class="avatar"></div>
-      <h2></h2>
-      <p></p>
-    </div>
-
-    <div class="wrapper">
-    </div>
+  <div class="wrapper">
   </div>
+</div>
 </body>
-
-</html>
+{% endblock %}

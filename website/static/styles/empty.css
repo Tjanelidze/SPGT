@@ -487,6 +487,7 @@ body {
   top: 18.1rem;
   left: 1.4rem;
   text-align: center;
+  font-weight: 700;
 }
 .phone__user-email {
   background-color: rgb(255, 255, 255);
@@ -496,4 +497,7 @@ body {
   font-size: 1.3rem;
   color: #333;
   text-align: center;
+}
+.link-preview div .image {
+  filter: brightness(500%);
 }

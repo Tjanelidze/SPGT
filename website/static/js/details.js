@@ -2,72 +2,72 @@ const data = localStorage.getItem("userData");
 const retrievedData = JSON.parse(data);
 const menuList = [
   {
-    icon: "../assets/images/icon-github.svg",
+    icon: "../static/assets/images/icon-github.svg",
     name: "Github",
     color: "#1A1A1A",
   },
   {
-    icon: "../assets/images/icon-frontend-mentor.svg",
+    icon: "../static/assets/images/icon-frontend-mentor.svg",
     name: "Frontend Mentor",
     color: "#FFF",
   },
   {
-    icon: "../assets/images/icon-twitter.svg",
+    icon: "../static/assets/images/icon-twitter.svg",
     name: "Twitter",
     color: "#43B7E9",
   },
   {
-    icon: "../assets/images/icon-linkedin.svg",
+    icon: "../static/assets/images/icon-linkedin.svg",
     name: "LinkedIn",
     color: "#2D68FF",
   },
   {
-    icon: "../assets/images/icon-youtube.svg",
+    icon: "../static/assets/images/icon-youtube.svg",
     name: "YouTube",
     color: "#EE3939",
   },
   {
-    icon: "../assets/images/icon-facebook.svg",
+    icon: "../static/assets/images/icon-facebook.svg",
     name: "Facebook",
     color: "#2442AC",
   },
   {
-    icon: "../assets/images/icon-twitch.svg",
+    icon: "../static/assets/images/icon-twitch.svg",
     name: "Twitch",
     color: "#EE3FC8",
   },
   {
-    icon: "../assets/images/icon-devto.svg",
+    icon: "../static/assets/images/icon-devto.svg",
     name: "Dev.to",
     color: "#333",
   },
   {
-    icon: "../assets/images/icon-codewars.svg",
+    icon: "../static/assets/images/icon-codewars.svg",
     name: "Codewars",
     color: "#8A1A50",
   },
   {
-    icon: "../assets/images/icon-codepen.svg",
+    icon: "../static/assets/images/icon-codepen.svg",
     name: "Codepen",
     color: "#302267",
   },
   {
-    icon: "../assets/images/icon-freecodecamp.svg",
+    icon: "../static/assets/images/icon-freecodecamp.svg",
     name: "freeCodeCamp",
     color: "#302267",
   },
   {
-    icon: "../assets/images/icon-gitlab.svg",
+    icon: "../static/assets/images/icon-gitlab.svg",
     name: "GitLab",
     color: "#EB4925",
   },
   {
-    icon: "../assets/images/icon-hashnode.svg",
+    icon: "../static/assets/images/icon-hashnode.svg",
     name: "Hashnode",
     color: "#0330D1",
   },
   {
-    icon: "../assets/images/icon-stack-overflow.svg",
+    icon: "../static/assets/images/icon-stack-overflow.svg",
     name: "Stack Overflow",
     color: "#EC7100",
   },
@@ -110,13 +110,12 @@ if (retrievedData) {
         <img class="image" src="${el.icon}" alt="github">
         <p class="link">${el.platform}</p>
       </div>
-      <img src="../assets/images/icon-arrow-right.svg" alt="arrow" class="arrow">
+      <img src="../static/assets/images/icon-arrow-right.svg" alt="arrow" class="arrow">
     </a>
     `
     );
   });
 }
-
 fileUploader.addEventListener("change", (e) => {
   const maxFileSize = 1024 * 1024;
   const image = e.target.files[0];
@@ -142,10 +141,16 @@ fileUploader.addEventListener("change", (e) => {
 
 saveBtn.addEventListener("click", (e) => {
   e.preventDefault();
+  const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
   const firstNameError = document.querySelector(".user__first-name p");
   const lastNameError = document.querySelector(".user__last-name p");
+  const emailError = document.querySelector(".user__email p");
 
-  if (firstName.value.trim() != "" && lastName.value.trim() != "") {
+  if (
+    firstName.value.trim() != "" &&
+    lastName.value.trim() != "" &&
+    emailRegex.test(email.value)
+  ) {
     const userInfo = {
       firstName: firstName.value,
       lastName: lastName.value,
@@ -167,6 +172,9 @@ saveBtn.addEventListener("click", (e) => {
   }
   if (lastName.value.trim() === "") {
     lastNameError.style.opacity = "1";
+  }
+  if (!emailRegex.test(email.value)) {
+    emailError.style.opacity = "1";
   }
 });
 const info = localStorage.getItem("userInfo");

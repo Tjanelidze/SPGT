@@ -21,11 +21,8 @@ Red:#FF3939
 }
 @font-face {
   font-family: "instrumentsans";
-  font-style: italic;
-  src: url("../assets/fonts/instrumentsans-italic-variablefont_wdthwght-webfont.woff2")
-      format("woff2"),
-    url("../assets/fonts/instrumentsans-italic-variablefont_wdthwght-webfont.woff")
-      format("woff");
+  font-weight: 700;
+  src: url("../assets/fonts/static/InstrumentSans-Bold.ttf") format("truetype");
 }
 * {
   margin: 0;

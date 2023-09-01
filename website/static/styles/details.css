@@ -409,6 +409,17 @@ form {
   color: red;
   opacity: 0;
 }
+.user__email {
+  position: relative;
+}
+.user__email p {
+  position: absolute;
+  top: 50%;
+  right: 1.6rem;
+  transform: translateY(-50%);
+  color: red;
+  opacity: 0;
+}
 .user__last-name {
   position: relative;
 }
@@ -436,4 +447,7 @@ form {
 .save-modal p {
   color: #f1f1f1;
   font-size: 1.3rem;
+}
+.link-preview div .image {
+  filter: brightness(300%);
 }

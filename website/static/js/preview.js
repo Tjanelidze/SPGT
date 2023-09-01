@@ -83,16 +83,14 @@ image.style.backgroundImage = `url(${img})`;
 fullName.innerHTML = dataPerson.firstName + " " + dataPerson.lastName;
 email.innerHTML = dataPerson.email;
 
-dataLinks.map((link, index) => {
-  let color = "";
-  // console.log(menuList[index]);
+dataLinks.map((link) => {
   let findEl = menuList.find((item) => item.name === link.platform);
   links.insertAdjacentHTML(
     "beforeend",
-    `<a style = "background:${findEl.color}"  href="${link.link}" class = "preview-card">
-                 <img src="${link.icon}"class = "image"/>
-                 <p>${link.platform}</p>
-                 <img src="../assets/images/icon-arrow-right.svg" alt="arrow" class="arrow"/>
-             </a>`
+    `<a style="background:${findEl.color}" href="${link.link}" class="preview-card">
+        <img src="${link.icon}" class="image"/>
+        <p>${link.platform}</p>
+        <img src="../static/assets/images/icon-arrow-right.svg" alt="arrow" class="arrow"/>
+      </a>`
   );
 });
