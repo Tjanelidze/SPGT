@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+{% block imports %}
+<link rel="stylesheet" href="../static/styles/style.css" />
+<link rel="stylesheet" href="../static/styles/mobile/index-mobile.css" />
+<script
+      defer
+      type="text/javascript"
+      src="{{url_for('static', filename='js/login.js')}}"
+    ></script>
+{% endblock %}
+
+{% block title %}Login {% endblock %}
+
+{% block content%}
+<div class="login-div">
+  <header>
+    <div class="devlink-div">
+      <img class="main-logo" src="../static/assets/images/logo-devlinks-large.svg" alt="logo" />
+    </div>
+  </header>
+  <main>
+    <strong class="log-strong">Login</strong>
+    <p class="instruction-p">
+      Add your details below to get back into the app
+    </p>
+    <form method="POST">
+      <div class="first-form">
+        <label for="email">Email address</label>
+        <input name="email" type="email" id="email" placeholder="e.g. alex@email.com" />
+        <div class="envelope-div icon">
+          <img class="envelope" src="../static/assets/images/icon-email.svg" />
+        </div>
+        <span class="email-err err">Can't be empty</span>
+      </div>
+      <div class="second-form">
+        <label for="password">Password</label>
+        <input name="password" type="password" id="password" placeholder="Enter your password" />
+        <div class="lock-div icon">
+          <img class="lock" src="../static/assets/images/icon-password.svg" />
+        </div>
+      </div>
+      <span class="password-err err">Can't be empty</span>
+      <button type="submit" id="log-btn">Login</button>
+    </form>
+    {% with messages = get_flashed_messages(with_categories=true) %} {% if
+    messages %} {% for category, message in messages %} {% if category ==
+    'error' %}
+    <span class="db-err">{{ message }}</span>
+    {% endif %} {% endfor %} {% endif %} {% endwith %}
+    <p class="question">
+      Don't have an account?
+      <a href="register" class="create">Create account</a>
+    </p>
+  </main>
+</div>
+{% endblock %}

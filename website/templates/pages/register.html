@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+{% block imports %}
+<link rel="stylesheet" href="../static/styles/register.css" />
+<link rel="stylesheet" href="../static/styles/mobile/register-mobile.css" />
+<script
+      defer
+      type="text/javascript"
+      src="{{url_for('static', filename='js/register.js')}}"
+    ></script>
+{% endblock %}
+
+{% block title %}Register {% endblock %}
+
+{% block content%}
+<div class="register-div">
+  <header>
+    <div class="devlink-div">
+      <img class="main-logo" src="../static/assets/images/logo-devlinks-large.svg" alt="logo" />
+    </div>
+  </header>
+  <main>
+    <strong class="acccount-Creating-strong">Create account</strong>
+    <p class="instruction-p">Let's get you started sharing your links!</p>
+    <form method="POST">
+      <div class="first-form">
+        <label for="email">Email address</label>
+        <input name="email" type="email" id="email" placeholder="e.g. alex@email.com" />
+        <div class="envelope-div icon">
+          <img class="envelope" src="../static/assets/images/icon-email.svg" />
+        </div>
+        <span class="email-err err">Can't be empty</span>
+      </div>
+      <div class="second-form">
+        <label for="password">Create password</label>
+        <input name="password" type="password" id="password" placeholder="At least 8 characters" />
+        <div class="lock-div icon">
+          <img class="lock" src="../static/assets/images/icon-password.svg" />
+        </div>
+        <span class="password-err err">Can't be empty</span>
+      </div>
+      <div class="third-form">
+        <label for="second-password">Confirm password</label>
+        <input name="sec-password" type="password" id="second-password" placeholder="At least 8 characters" />
+        <div class="second-lock-div icon">
+          <img class="second-lock" src="../static/assets/images/icon-password.svg" />
+        </div>
+        <span class="confirm-password-err err">Can't be empty</span>
+      </div>
+      <p class="about-password">
+        Password must contain at least 8 characters
+      </p>
+      <button type="submit" id="register-btn">Create new account</button>
+    </form>
+    {% with messages = get_flashed_messages(with_categories=true) %} {% if
+    messages %} {% for category, message in messages %} {% if category ==
+    'error' %}
+    <span class="db-err">{{ message }}</span>
+    {% endif %} {% endfor %} {% endif %} {% endwith %}
+
+    <p class="question">
+      Don't have an account?
+      <a href="/" class="question-login">Login</a>
+    </p>
+  </main>
+</div>
+{% endblock %}

@@ -1,0 +1,34 @@
+{% extends 'base.html' %} {% block imports %}
+<link rel="stylesheet" href="../static/styles/preview.css" />
+<link rel="stylesheet" href="../static/styles/mobile/preview-mobile.css">
+<script
+      defer
+      type="text/javascript"
+      src="{{url_for('static', filename='js/preview.js')}}"
+    ></script>
+{% endblock %} {% block title %} Preview {% endblock %} {% block content%}
+
+<div class="share">
+  <a href="empty" class="Back-to-editor">Back to Editor</a>
+  <button class="share-link">Share Link</button>
+</div>
+
+<div class="purple">
+</div>
+
+<div class="profile">
+  <div class="profile-details">
+    <div class="avatar"></div>
+    <h2></h2>
+    <p></p>
+  </div>
+
+  <div class="wrapper"></div>
+</div>
+
+<div class="save-modal">
+  <img src="../static/assets/images/icon-link-copied-to-clipboard.svg" alt="">
+  <p>Your changes have been successfully saved!</p>
+</div>
+
+{% endblock %}

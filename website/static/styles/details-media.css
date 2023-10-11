@@ -1,0 +1,230 @@
+@media (max-width: 1175px) {
+  .upload-image-span {
+    font-size: 1.4rem;
+  }
+
+  .box {
+    padding: 5.1rem 2.8rem 5rem 2.9rem;
+  }
+}
+@media (max-width: 1030px) {
+  .box {
+    padding: 3.1rem 1.8rem 3rem 1.9rem;
+  }
+}
+
+@media (max-width: 950px) {
+  .main {
+    gap: 0px;
+  }
+
+  output {
+    font-size: 0.9rem;
+  }
+
+  .box-wrapper {
+    gap: 0.5rem;
+  }
+}
+
+@media (max-width: 900px) {
+  .header__pages {
+    gap: 0;
+  }
+
+  .main {
+    display: flex;
+  }
+
+  .main__details {
+    width: 100%;
+  }
+
+  .main__phone {
+    display: none;
+  }
+
+  .box-wrapper {
+    gap: 2.4rem;
+    width: 60%;
+  }
+
+  .box {
+    padding: 6.1rem 3.8rem 6rem 3.9rem;
+  }
+
+  output {
+    font-size: 1.1rem;
+    line-height: 1.4rem;
+  }
+
+  .form__user-info div input {
+    width: 60%;
+  }
+}
+
+@media (max-width: 725px) {
+  figure {
+    width: 100px;
+  }
+}
+
+@media (max-width: 700px) {
+  .pages__links,
+  .pages__profile-details {
+    font-size: 1.4rem;
+  }
+}
+@media (max-width: 660px) {
+  .box-wrapper {
+    gap: 1rem;
+  }
+}
+@media (max-width: 688px) {
+  .pages__links,
+  .pages__profile-details {
+    font-size: 1.4rem;
+    padding: 0px 2rem;
+  }
+
+  .button_preview {
+    font-weight: 500;
+    font-size: 1.4rem;
+  }
+}
+
+@media (max-width: 580px) {
+  .pages__links,
+  .pages__profile-details {
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 530px) {
+  .header {
+    padding: 1.3rem 2.1rem;
+  }
+
+  .pages__links,
+  .pages__profile-details {
+    padding: 0rem 1.3rem;
+  }
+}
+
+@media (max-width: 590px) {
+  .form__upload {
+    flex-direction: column;
+    align-items: start;
+  }
+
+  .box-wrapper {
+    flex-direction: column;
+    align-items: start;
+  }
+
+  output {
+    width: 100%;
+    font-size: 1.2rem;
+    line-height: 1.8rem;
+  }
+
+  .form__upload {
+    margin-top: 0;
+  }
+
+  .box-wrapper {
+    padding-top: 1.6rem;
+  }
+
+  .form__user-info div {
+    flex-direction: column;
+    align-items: start;
+  }
+
+  .form__user-info div input {
+    width: 100%;
+  }
+
+  .container {
+    padding: 1.6rem;
+  }
+}
+@media (max-width: 500px) {
+  .customize__heading {
+    font-size: 2.4rem;
+  }
+
+  .detail_save {
+    padding: 1.6rem;
+  }
+
+  .detail_save button {
+    width: 100%;
+    line-height: 150%;
+  }
+}
+@media (max-width: 480px) {
+  .header {
+    padding: 1.6rem;
+  }
+  .header__logo {
+    width: 3.6rem;
+    height: 3.6rem;
+  }
+  .header__logo img {
+    width: 100%;
+  }
+  .logo__large {
+    display: none;
+  }
+  .logo__small {
+    display: block;
+  }
+
+  .links span {
+    display: none;
+  }
+
+  .links svg {
+    width: 2rem;
+    height: 2rem;
+  }
+
+  .pages__links,
+  .pages__profile-details {
+    padding: 1.1rem 2.7rem;
+  }
+
+  .button_preview span {
+    display: none;
+  }
+
+  .button_preview img {
+    display: block;
+  }
+
+  .button_preview {
+    padding: 1.1rem 1.6rem;
+  }
+
+  .customize__heading {
+    font-size: 2.4rem;
+  }
+
+  .links__customize {
+    margin: 2.4rem;
+  }
+
+  .customize__empty-panel {
+    margin: 0 4.4rem;
+  }
+
+  .links_save {
+    padding: 1.6rem;
+  }
+
+  .links_save button {
+    width: 100%;
+    line-height: 150%;
+  }
+}

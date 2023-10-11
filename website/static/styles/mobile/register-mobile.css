@@ -1,0 +1,76 @@
+@media (max-width: 512px) {
+  body {
+    background-color: white;
+  }
+  .register-div {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%);
+  }
+
+  header {
+    padding-left: 3.2rem;
+    background-color: white;
+    display: flex;
+    justify-content: start;
+  }
+
+  .devlink-div {
+    margin-top: 3.2rem;
+    margin-bottom: 2.4rem;
+  }
+
+  main {
+    border-radius: 0;
+    padding: 3.2rem;
+  }
+
+  .acccount-Creating-strong {
+    font-size: 2.4rem;
+  }
+  .icon {
+    margin-top: -3.2rem;
+    left: 4.8rem;
+  }
+
+  .question {
+    text-align: center;
+  }
+
+  .question-login {
+    text-align: center;
+    display: block;
+  }
+  .email-err {
+    top: 38.5%;
+    left: 65%;
+  }
+
+  .password-err {
+    top: 52%;
+    left: 65%;
+  }
+
+  .confirm-password-err {
+    top: 65.5%;
+    left: 65%;
+  }
+}
+
+@media (min-width: 513px) and (max-width: 841px) {
+  .email-err {
+    top: 40.5%;
+    left: 63%;
+  }
+
+  .password-err {
+    top: 54%;
+    left: 63%;
+  }
+
+  .confirm-password-err {
+    top: 67.5%;
+    left: 63%;
+  }
+}
